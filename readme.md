@@ -1,4 +1,4 @@
-# overfounder.com
+# unplasticomenos.com
 
 Generated with https://github.com/dokku-community/dokku-wordpress.
 
@@ -40,55 +40,58 @@ git push origin master --force
 # retrieving potential salts and writing them to /tmp/wp-salts
 # run the following commands on the server to setup the app:
 
-dokku apps:create overfounder
+dokku apps:create unplasticomenos
 
 # setup plugins persistent storage
 
-mkdir -p /var/lib/dokku/data/storage/overfounder-plugins
-chown 32767:32767 /var/lib/dokku/data/storage/overfounder-plugins
-dokku storage:mount overfounder /var/lib/dokku/data/storage/overfounder-plugins:/app/wp-content/plugins
+mkdir -p /var/lib/dokku/data/storage/unplasticomenos-plugins
+chown 32767:32767 /var/lib/dokku/data/storage/unplasticomenos-plugins
+dokku storage:mount unplasticomenos /var/lib/dokku/data/storage/unplasticomenos-plugins:/app/wp-content/plugins
 
 # setup upload persistent storage
 
-mkdir -p /var/lib/dokku/data/storage/overfounder-uploads
-chown 32767:32767 /var/lib/dokku/data/storage/overfounder-uploads
-dokku storage:mount overfounder /var/lib/dokku/data/storage/overfounder-uploads:/app/wp-content/uploads
+mkdir -p /var/lib/dokku/data/storage/unplasticomenos-uploads
+chown 32767:32767 /var/lib/dokku/data/storage/unplasticomenos-uploads
+dokku storage:mount unplasticomenos /var/lib/dokku/data/storage/unplasticomenos-uploads:/app/wp-content/uploads
 
 # setup languages persistent storage
 
-mkdir -p /var/lib/dokku/data/storage/overfounder-languages
-chown 32767:32767 /var/lib/dokku/data/storage/overfounder-languages
-dokku storage:mount overfounder /var/lib/dokku/data/storage/overfounder-languages:/app/wp-content/languages
+mkdir -p /var/lib/dokku/data/storage/unplasticomenos-languages
+chown 32767:32767 /var/lib/dokku/data/storage/unplasticomenos-languages
+dokku storage:mount unplasticomenos /var/lib/dokku/data/storage/unplasticomenos-languages:/app/wp-content/languages
 
 # setup persistent themes
 
-mkdir -p /var/lib/dokku/data/storage/overfounder-themes
-chown 32767:32767 /var/lib/dokku/data/storage/overfounder-themes
-dokku storage:mount overfounder /var/lib/dokku/data/storage/overfounder-themes:/app/wp-content/themes
+mkdir -p /var/lib/dokku/data/storage/unplasticomenos-themes
+chown 32767:32767 /var/lib/dokku/data/storage/unplasticomenos-themes
+dokku storage:mount unplasticomenos /var/lib/dokku/data/storage/unplasticomenos-themes:/app/wp-content/themes
 
 # setup your mysql database and link it to your app
 # if you're using MariaDB, replace mysql with mariadb
 
 export MYSQL_IMAGE_VERSION="5.6"
-dokku mysql:create overfounder_database
-dokku mysql:link overfounder_database overfounder
+dokku mysql:create unplasticomenos_database
+dokku mysql:link unplasticomenos_database unplasticomenos
 
 # you will also need to set the proper environment variables for keys and salts
 # the following were generated using the wordpress salt api: https://api.wordpress.org/secret-key/1.1/salt/
 # and use the following commands to set them up:
 
-dokku config:set overfounder AUTH_KEY='{ZR$A~Nt0X/-Qkam7twmK:3,Fhdw`Kta.+V^AEtZ,.l-(f}RK^)/?/-Cb_+bQ0kD'
-dokku config:set overfounder SECURE_AUTH_KEY='TJAe%fo=:+z1w%a]vlb#Il[jYRqH&zanjO7?j_,Qz^^!q}wLuuQOaXW[i-iGI9'
-dokku config:set overfounder LOGGED_IN_KEY='{2=KRJ(d^[zb^X-+USsJS]TK|`S`cfKr.a}j/E)e(aaV?J)~,2*|N`yuNK(4$'
-dokku config:set overfounder NONCE_KEY='0~_&x~EklHTN}F9c]VrY?=;[I>W:p9x-P*AN-|C=NO%#0Mhq7N_O|XY8}Fw{%qIT'
-dokku config:set overfounder AUTH_SALT='Zo>gQr:!+/Mxm^Tv9UnPrfcPCilas07IK}eSKXMw9Yb1-CSrQN+-op=6e9J0:p+'
-dokku config:set overfounder SECURE_AUTH_SALT='o>rZm,~{#H8h,d,o:|s-pR!v-%-3-^q@?9TnC+Z8EE^*)=Kda4(,>(jN>-AmMiF'
-dokku config:set overfounder LOGGED_IN_SALT='ETD]iabG{$CXj|`_it[Zq--RGD#,=znxF<+yOzH#Rmk-:3/9g!QwAo%GUHM=FJ['
-dokku config:set overfounder NONCE_SALT='EY)O/2[Cnzj3vNH.dWzZDbRgfG{Mu-HuT%EH-C-UzV?S_r|-!jZwjd1kF32+xV'
+dokku config:set unplasticomenos AUTH_KEY='{ZR$A~Nt0X/-Qkam7twmK:3,Fhdw`Kta.+V^AEtZ,.l-(f}RK^)/?/-Cb_+bQ0kD'
+dokku config:set unplasticomenos SECURE_AUTH_KEY='TJAe%fo=:+z1w%a]vlb#Il[jYRqH&zanjO7?j_,Qz^^!q}wLuuQOaXW[i-iGI9'
+dokku config:set unplasticomenos LOGGED_IN_KEY='{2=KRJ(d^[zb^X-+USsJS]TK|`S`cfKr.a}j/E)e(aaV?J)~,2*|N`yuNK(4$'
+dokku config:set unplasticomenos NONCE_KEY='0~_&x~EklHTN}F9c]VrY?=;[I>W:p9x-P*AN-|C=NO%#0Mhq7N_O|XY8}Fw{%qIT'
+dokku config:set unplasticomenos AUTH_SALT='Zo>gQr:!+/Mxm^Tv9UnPrfcPCilas07IK}eSKXMw9Yb1-CSrQN+-op=6e9J0:p+'
+dokku config:set unplasticomenos SECURE_AUTH_SALT='o>rZm,~{#H8h,d,o:|s-pR!v-%-3-^q@?9TnC+Z8EE^*)=Kda4(,>(jN>-AmMiF'
+dokku config:set unplasticomenos LOGGED_IN_SALT='ETD]iabG{$CXj|`_it[Zq--RGD#,=znxF<+yOzH#Rmk-:3/9g!QwAo%GUHM=FJ['
+dokku config:set unplasticomenos NONCE_SALT='EY)O/2[Cnzj3vNH.dWzZDbRgfG{Mu-HuT%EH-C-UzV?S_r|-!jZwjd1kF32+xV'
+
+# Set max amount of processes to 4
+dokku config:set unplasticomenos WEB_CONCURRENCY=4
 
 # now, on your local machine, change directory to your new wordpress app, and push it up
 
-cd overfounder
+cd unplasticomenos.com
 git push dokku master
 ```
 
